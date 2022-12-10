@@ -19,6 +19,7 @@ $result_game = $game->all(get_connection(include("api/config.php")),$game_query)
         <div class="col s12 m6 l3">
             <div class="card">
                 <div class="card-content">
+                    <p>Game id : <?php echo $value->id ?></p>
                     <h4><?php echo $value->game_name ?></h4>
                     <p><?php echo $value->game_description ?></p>
                 </div>

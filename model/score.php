@@ -66,9 +66,9 @@ class score {
     public function one_by_player_id($db) {
         $result_query = new result_query();
         $one = new score();
-        $query = "SELECT id, game_id, player_id, player_name, score FROM scoreboard WHERE player_id = ? LIMIT 1";
+        $query = "SELECT id, game_id, player_id, player_name, score FROM scoreboard WHERE player_id = ? and game_id = ? LIMIT 1";
         $stmt = $db->prepare($query);
-        $stmt->bind_param('s', $this->player_id);
+        $stmt->bind_param('si', $this->player_id, $this->game_id);
         $stmt->execute();      
         if ($stmt->error != ""){
             $result_query-> error = "error at query one score : ".$stmt->error;
