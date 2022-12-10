@@ -24,7 +24,7 @@ $result_game = $game->all(get_connection(include("api/config.php")),$game_query)
                 </div>
                 <div class="card-action">
                     <a class="black-text" href="<?php echo $value->game_url ?>?&player_id=admin001&player_name=admin">Play</a>
-                    <!-- <a class="red-text" href="#">Delete</a> -->
+                    <a class="black-text" href="<?php echo "?menu=scoreboard&offset=0&game_id=". $value->id ?>">Scoreboard</a>
                 </div>
             </div>
         </div>
