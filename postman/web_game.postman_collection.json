@@ -1,0 +1,332 @@
+{
+	"info": {
+		"_postman_id": "d0c9d95a-ea58-49b5-81ed-2ffad1428c2b",
+		"name": "web-game-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "game",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 0,\n    \"game_name\": \"balloon pop\",\n    \"game_description\": \"game about popping balloon\",\n    \"game_url\": \"balloon-pop.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/game/add.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"game",
+								"add.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"search_by\": \"game_name\",\n    \"search_value\": \"\",\n    \"order_by\": \"game_name\",\n    \"order_dir\": \"asc\",\n    \"offset\": 0,\n    \"limit\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/game/list.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"game",
+								"list.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "one",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 3,\n    \"game_name\": \"\",\n    \"game_description\": \"\",\n    \"game_url\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/game/one.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"game",
+								"one.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 4,\n    \"game_name\": \"balloon pop\",\n    \"game_description\": \"game about popping balloon\",\n    \"game_url\": \"/games/balloon-pop/\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/game/update.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"game",
+								"update.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 3,\n    \"game_name\": \"\",\n    \"game_description\": \"\",\n    \"game_url\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/game/delete.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"game",
+								"delete.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "score",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 0,\n    \"game_id\": 4,\n    \"player_id\": \"admin005\",\n    \"player_name\": \"admin 5\",\n    \"score\" : 280\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/score/add.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"score",
+								"add.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"search_by\": \"game_id\",\n    \"search_value\": \"4\",\n    \"order_by\": \"score\",\n    \"order_dir\": \"desc\",\n    \"offset\": 0,\n    \"limit\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/score/list.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"score",
+								"list.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "one",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"game_id\": 0,\n    \"player_id\": \"\",\n    \"player_name\": \"\",\n    \"score\" : 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/score/one.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"score",
+								"one.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"game_id\": 4,\n    \"player_id\": \"admin001\",\n    \"player_name\": \"admin\",\n    \"score\" : 300\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/score/update.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"score",
+								"update.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 3,\n    \"game_name\": \"\",\n    \"game_description\": \"\",\n    \"game_url\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/score/delete.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"score",
+								"delete.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "upload file",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": []
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}{{host}}{{port}}/api/upload_file.php",
+					"host": [
+						"{{protocol}}{{host}}{{port}}"
+					],
+					"path": [
+						"api",
+						"upload_file.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
