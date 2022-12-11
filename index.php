@@ -53,6 +53,21 @@
                             </span>
                             </div>
                         </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">arrow_drop_down</i>
+                                <h6> Api Document </h6>
+                            </div>
+                            <div class="collapsible-body">
+                                <span>
+                                    <a href="/postman/web_game.postman_collection.json" download>Postman Api Document</a>
+                                </span>
+                            </div>
+                            <div class="collapsible-body">
+                                <span>
+                                    <a href="/postman/web_game.postman_collection.json" download>Postman Api Enviroment</a>
+                                </span>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
