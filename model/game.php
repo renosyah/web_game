@@ -21,12 +21,13 @@ class game {
     public function add($db) {
         $result_query = new result_query();
         $result_query->data = "ok";
-        $query = "INSERT INTO game (game_name, game_description, game_url) VALUES ($this->game_name, $this->game_description, $this->game_url)";
+        $query = "INSERT INTO game (game_name, game_description, game_url) VALUES ('$this->game_name', '$this->game_description', '$this->game_url')";
         $stmt = $db->query($query);
-        if (!$stmt){
+        if ($stmt->error != null){
             $result_query->error = "error at add new game : ".$stmt->error;
             $result_query->data = "not ok";
             $db->close();
+            return $result_query;
         }
 
         $db->close();
@@ -36,15 +37,20 @@ class game {
     public function one($db) {
         $result_query = new result_query();
         $one = new game();
-        $query = "SELECT id, game_name, game_description, game_url FROM game WHERE id=$this->id LIMIT 1";
+        $query = "SELECT id, game_name, game_description, game_url FROM game WHERE id='$this->id' LIMIT 1";
         $stmt = $db->query($query);
-        if (!$stmt){
+        if ($stmt->error != null){
             $result_query->error = "error at query one game : ".$stmt->error;
             $db->close();
             return $result_query;
         }
-
+        
         $result = mysqli_fetch_assoc($stmt);
+        if($result['id'] == null){
+            $db->close();
+            return $result_query;
+        }
+
         $one->id = (int) $result['id'];
         $one->game_name = $result['game_name'];
         $one->game_description = $result['game_description'];
@@ -69,7 +75,7 @@ class game {
                 LIMIT $list_query->limit OFFSET $list_query->offset";
 
         $stmt = $db->query($query);
-        if (!$stmt){
+        if ($stmt->error != null){
             $result_query->error = "error at query one game : ".$stmt->error;
             $db->close();
             return $result_query;
@@ -99,12 +105,13 @@ class game {
     public function update($db) {
         $result_query = new result_query();
         $result_query->data = "ok";
-        $query = "UPDATE game SET game_name = $this->game_name, game_description = $this->game_description, game_url = $this->game_url WHERE id = $this->id";
+        $query = "UPDATE game SET game_name = '$this->game_name', game_description = '$this->game_description', game_url = '$this->game_url' WHERE id = '$this->id'";
         $stmt = $db->query($query);
-        if (!$stmt){
+        if ($stmt->error != null){
             $result_query->error = "error at update game : ".$stmt->error;
             $result_query->data = "not ok";
             $db->close();
+            return $result_query;
         }
 
         $db->close();
@@ -114,12 +121,13 @@ class game {
     public function delete($db) {
         $result_query = new result_query();
         $result_query->data = "ok";
-        $query = "DELETE FROM game WHERE id = $this->id";
+        $query = "DELETE FROM game WHERE id = '$this->id'";
         $stmt = $db->query($query);
-        if (!$stmt){
+        if ($stmt->error != null){
             $result_query->error = "error at update game : ".$stmt->error;
             $result_query->data = "not ok";
             $db->close();
+            return $result_query;
         }
 
         $db->close();
