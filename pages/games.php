@@ -35,8 +35,8 @@ $result_game = $game->all(get_connection(include("api/config.php")),$game_query)
                     <p><?php echo $value->game_description ?></p>
                 </div>
                 <div class="card-action">
-                    <a class="black-text" href="<?php echo $value->game_url ?>?&player_id=admin001&player_name=admin" target="_blank">Play</a>
-                    <a class="black-text" href="<?php echo "?menu=scoreboard&offset=0&game_id=". $value->id ?>" target="_blank">Scoreboard</a>
+                    <a class="black-text" href="<?php echo $value->game_url ?>?game_id=<?php echo $value->id ?>&player_id=admin001&player_name=admin" target="_blank">Play</a>
+                    <a class="black-text" href="<?php echo "?menu=scoreboard&offset=0&game_id=". $value->id ?>">Scoreboard</a>
                 </div>
             </div>
         </div>
