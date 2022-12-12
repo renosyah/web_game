@@ -23,7 +23,7 @@ class game {
         $result_query->data = "ok";
         $query = "INSERT INTO game (game_name, game_description, game_url) VALUES ('$this->game_name', '$this->game_description', '$this->game_url')";
         $stmt = $db->query($query);
-        if ($stmt->error != null){
+        if (!$stmt){
             $result_query->error = "error at add new game : ".$stmt->error;
             $result_query->data = "not ok";
             $db->close();
@@ -39,7 +39,7 @@ class game {
         $one = new game();
         $query = "SELECT id, game_name, game_description, game_url FROM game WHERE id='$this->id' LIMIT 1";
         $stmt = $db->query($query);
-        if ($stmt->error != null){
+        if (!$stmt){
             $result_query->error = "error at query one game : ".$stmt->error;
             $db->close();
             return $result_query;
@@ -75,7 +75,7 @@ class game {
                 LIMIT $list_query->limit OFFSET $list_query->offset";
 
         $stmt = $db->query($query);
-        if ($stmt->error != null){
+        if (!$stmt){
             $result_query->error = "error at query one game : ".$stmt->error;
             $db->close();
             return $result_query;
@@ -107,7 +107,7 @@ class game {
         $result_query->data = "ok";
         $query = "UPDATE game SET game_name = '$this->game_name', game_description = '$this->game_description', game_url = '$this->game_url' WHERE id = '$this->id'";
         $stmt = $db->query($query);
-        if ($stmt->error != null){
+        if (!$stmt){
             $result_query->error = "error at update game : ".$stmt->error;
             $result_query->data = "not ok";
             $db->close();
@@ -123,7 +123,7 @@ class game {
         $result_query->data = "ok";
         $query = "DELETE FROM game WHERE id = '$this->id'";
         $stmt = $db->query($query);
-        if ($stmt->error != null){
+        if (!$stmt){
             $result_query->error = "error at update game : ".$stmt->error;
             $result_query->data = "not ok";
             $db->close();

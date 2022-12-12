@@ -25,7 +25,7 @@ class score {
         $result_query->data = "ok add";
         $query = "INSERT INTO scoreboard (game_id, player_id, player_name, score) VALUES ('$this->game_id', '$this->player_id', '$this->player_name', '$this->score')";
         $stmt = $db->query($query);
-        if ($stmt->error != null){
+        if (!$stmt){
             $result_query->error = "error at add new score : ".$stmt->error;
             $result_query->data = "not ok";
             $db->close();
@@ -41,7 +41,7 @@ class score {
         $one = new score();
         $query = "SELECT id, game_id, player_id, player_name, score FROM scoreboard WHERE id='$this->id' LIMIT 1";
         $stmt = $db->query($query);
-        if ($stmt->error != null){
+        if (!$stmt){
             $result_query->error = "error at query one game : ".$stmt->error;
             $db->close();
             return $result_query;
@@ -68,7 +68,7 @@ class score {
         $one = new score();
         $query = "SELECT id, game_id, player_id, player_name, score FROM scoreboard WHERE player_id = '$this->player_id' and game_id = '$this->game_id' LIMIT 1";
         $stmt = $db->query($query);
-        if ($stmt->error != null){
+        if (!$stmt){
             $result_query->error = "error at query one game : ".$stmt->error;
             $db->close();
             return $result_query;
@@ -105,7 +105,7 @@ class score {
                 LIMIT $list_query->limit OFFSET $list_query->offset";
 
         $stmt = $db->query($query);
-        if ($stmt->error != null){
+        if (!$stmt){
             $result_query->error = "error at query one score : ".$stmt->error;
             $db->close();
             return $result_query;
@@ -137,7 +137,7 @@ class score {
         $result_query->data = "ok update";
         $query = "UPDATE scoreboard SET game_id = '$this->game_id', player_id = '$this->player_id', player_name = '$this->player_name', score = '$this->score' WHERE id = '$this->id'";
         $stmt = $db->query($query);
-        if ($stmt->error != null){
+        if (!$stmt){
             $result_query->error = "error at add new score : ".$stmt->error;
             $result_query->data = "not ok";
             $db->close();
@@ -153,7 +153,7 @@ class score {
         $result_query->data = "ok";
         $query = "DELETE FROM scoreboard WHERE id = '$this->id'";
         $stmt = $db->query($query);
-        if ($stmt->error != null){
+        if (!$stmt){
             $result_query->error = "error at add new score : ".$stmt->error;
             $result_query->data = "not ok";
             $db->close();
