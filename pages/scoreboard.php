@@ -52,6 +52,6 @@ $result_score = $score->all(get_connection(include("api/config.php")), $score_qu
 <div class="container">
     <ul class="center pagination">
         <li class="waves-effect"><a href="<?php echo "?menu=scoreboard" . ("&offset=". ($offset - 10 < 0 ? 0 : $offset - 10) ) ?>"><i class="material-icons">chevron_left</i></a></li>
-        <li class="waves-effect"><a href="<?php echo "?menu=scoreboard" . ("&offset=". $offset + 10) ?>"><i class="material-icons">chevron_right</i></a></li>
+        <li class="waves-effect"><a href="<?php echo "?menu=scoreboard" . ("&offset=". ($offset + 10) ) ?>"><i class="material-icons">chevron_right</i></a></li>
     </ul>
 </div>
