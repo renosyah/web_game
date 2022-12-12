@@ -45,7 +45,7 @@ class game {
         }
 
         $result = mysqli_fetch_assoc($stmt);
-        $one->id = $result['id'];
+        $one->id = (int) $result['id'];
         $one->game_name = $result['game_name'];
         $one->game_description = $result['game_description'];
         $one->game_url = $result['game_url'];
@@ -83,7 +83,7 @@ class game {
 
         while ($result = $stmt->fetch_array()){
             $one = new game();
-            $one->id = $result['id'];
+            $one->id = (int) $result['id'];
             $one->game_name = $result['game_name'];
             $one->game_description = $result['game_description'];
             $one->game_url = $result['game_url'];

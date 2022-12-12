@@ -47,11 +47,11 @@ class score {
         }
 
         $result = mysqli_fetch_assoc($stmt);
-        $one->id = $result['id'];
-        $one->game_id = $result['game_id'];
+        $one->id = (int) $result['id'];
+        $one->game_id = (int) $result['game_id'];
         $one->player_id = $result['player_id'];
         $one->player_name = $result['player_name'];
-        $one->score = $result['score'];
+        $one->score = (int) $result['score'];
         $result_query->data = $one;
         $db->close();
         return $result_query;
@@ -75,11 +75,11 @@ class score {
             return $result_query;
         }
         $result = $rows->fetch_assoc();
-        $one->id = $result['id'];
-        $one->game_id = $result['game_id'];
+        $one->id = (int) $result['id'];
+        $one->game_id = (int) $result['game_id'];
         $one->player_id = $result['player_id'];
         $one->player_name = $result['player_name'];
-        $one->score = $result['score'];
+        $one->score = (int) $result['score'];
         $result_query->data = $one;
         $stmt->close();
         return $result_query;
@@ -113,11 +113,11 @@ class score {
 
         while ($result = $stmt->fetch_array()){
             $one = new score();
-            $one->id = $result['id'];
-            $one->game_id = $result['game_id'];
+            $one->id = (int) $result['id'];
+            $one->game_id = (int) $result['game_id'];
             $one->player_id = $result['player_id'];
             $one->player_name = $result['player_name'];
-            $one->score = $result['score'];
+            $one->score = (int) $result['score'];
             array_push($all,$one);
         }
         $result_query->data = $all;
