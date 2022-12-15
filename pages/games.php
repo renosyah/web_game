@@ -34,10 +34,10 @@
         <div class="col s12 m6 l3">
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="<?php echo $value->game_url . "/index.icon.png" ?>" style="height:250px">
+                    <img class="activator" src="<?php echo "$value->game_url/index.icon.png" ?>" style="height:250px">
                 </div>
                 <div class="card-content">
-                    <p>Game id : <?php echo $value->id ?></p>
+                    <p><?php echo "Game id : $value->id" ?></p>
                     <h4><?php echo $value->game_name ?></h4>
                     <p><?php echo $value->game_description ?></p>
                 </div>

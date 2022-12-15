@@ -17,20 +17,23 @@
     }
 
     $score_query = [
-        'search_by' => 'player_name',
+        'search_by' => 'scoreboard.player_name',
         'search_value' => '',
-        'order_by' => 'score',
-        'order_dir'=> 'desc',
+        'order_by' => 'scoreboard.score',
+        'order_dir'=> 'DESC',
         'offset' => $offset,
         'limit' => $limit
     ];
     
     if ($game_id != null){
-        $score_query['search_by'] = 'game_id';
+        $score_query['search_by'] = 'scoreboard.game_id';
         $score_query['search_value'] = $game_id;
     }
 
-    $result_score = $score->all(get_connection(include("api/config.php")), (object) $score_query);
+    $result_score = $score->all_with_games(
+        get_connection(include("api/config.php")),
+        (object) $score_query
+    );
 
 ?>
 <div class="row" style="min-height:600px">
@@ -44,11 +47,11 @@
     <?php foreach ($result_score->data as $value) { ?>
         <div class="col s12 m6 l3">
             <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="/img/score.png" style="height:100px">
+            <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="<?php echo "$value->game_url/index.icon.png" ?>" style="height:250px">
                 </div>
                 <div class="card-content">
-                    <p>Game id : <?php echo $value->game_id ?></p>
+                    <p><?php echo "Game : $value->game_name" ?></p>
                     <h4><?php echo $value->player_name ?></h4>
                     <p>Score : <?php echo $value->score ?></p>
                 </div>
