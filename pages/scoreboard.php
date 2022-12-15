@@ -16,7 +16,7 @@
         $game_id = $_GET['game_id'];
     }
 
-    $score_query = (object) [
+    $score_query = [
         'search_by' => 'player_name',
         'search_value' => '',
         'order_by' => 'score',
@@ -24,19 +24,13 @@
         'offset' => $offset,
         'limit' => $limit
     ];
-
+    
     if ($game_id != null){
-        $score_query = (object) [
-            'search_by' => 'game_id',
-            'search_value' => $game_id,
-            'order_by' => 'score',
-            'order_dir'=> 'desc',
-            'offset' => $offset,
-            'limit' => $limit
-        ];
+        $score_query['search_by'] = 'game_id';
+        $score_query['search_value'] = $game_id;
     }
 
-    $result_score = $score->all(get_connection(include("api/config.php")), $score_query);
+    $result_score = $score->all(get_connection(include("api/config.php")), (object) $score_query);
 
 ?>
 <div class="row" style="min-height:600px">
